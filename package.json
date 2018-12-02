@@ -1,0 +1,24 @@
+{
+  "name": "generate-class-list",
+  "version": "1.0.0",
+  "description": "Generate CSS classes for an element from a variety of input formats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgmcelwain/generate-class-list.git"
+  },
+  "keywords": [
+    "class",
+    "css",
+    "classList"
+  ],
+  "author": "Jamie McElwain <jgmcelwain@icloud.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jgmcelwain/generate-class-list/issues"
+  },
+  "homepage": "https://github.com/jgmcelwain/generate-class-list#readme"
+}
