@@ -7,29 +7,35 @@
 const generateClassList = (...classNames) => {
   const classList = []
 
+  const addClass = className => {
+    if (className) {
+      return classList.push(className)
+    }
+  }
+
   classNames.forEach(className => {
     if (!className || typeof className === 'boolean') {
       return
     }
 
     if (typeof className === 'string' || typeof className === 'number') {
-      return classList.push(className)
+      return addClass(className)
     }
 
     if (typeof className === 'function') {
-      return classList.push(className.call(this))
+      return addClass(className.call(this))
     }
 
     if (Array.isArray(className)) {
       return className.forEach(inner => {
-        return classList.push(generateClassList(inner))
+        return addClass(generateClassList(inner))
       })
     }
 
     if (className === Object(className)) {
       return Object.entries(className).forEach(([className, isActive]) => {
         if (isActive) {
-          return classList.push(className)
+          return addClass(className)
         }
       })
     }
