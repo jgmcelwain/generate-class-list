@@ -4,7 +4,7 @@
   "description": "Generate CSS classes for an element from a variety of input formats",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/jgmcelwain/generate-class-list/issues"
   },
-  "homepage": "https://github.com/jgmcelwain/generate-class-list#readme"
+  "homepage": "https://github.com/jgmcelwain/generate-class-list#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.13.1"
+  }
 }
