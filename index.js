@@ -28,7 +28,7 @@ const generateClassList = (...potentialClasses) => {
 
     if (potentialClass === Object(potentialClass)) {
       return Object.entries(potentialClass).forEach(([className, isActive]) => {
-        if (isActive === true) {
+        if (isActive) {
           return classList.push(className)
         }
       })
