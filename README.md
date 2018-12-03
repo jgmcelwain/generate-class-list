@@ -4,7 +4,7 @@ Generate a CSS class list for an element from a variety of input formats, with s
 
 ## Usage
 
-`generate-class-list` accepts a variety of input formats.  
+`generate-class-list` accepts a variety of input formats.
 
 ```js
 import generateClassList from 'generate-class-list'
@@ -18,6 +18,9 @@ generateClassList(['first', 'second']) // 'first second'
 // object with conditions
 generateClassList({ 'conditional-class': someCheck === true }) // 'conditional-class'
 
+// values from functions
+generateClassList(() => 'from-a-function')) // 'from-a-function'
+
 // multiple arguments
 generateClassList('first', { 'second': someCheck === true }) // 'first second'
 
@@ -25,42 +28,38 @@ generateClassList('first', { 'second': someCheck === true }) // 'first second'
 generateClassList([[[[[[[[[[['why-would-you-do-this']]]]]]]]]]]) // ''why-would-you-do-this''
 ```
 
-
 ## Examples
 
 ### JS
+
 ```html
 <input id="input-field" class="input-field" />
 
 <script type="text/javascript" src="//unpkg.com/generate-class-list"></script>
 <script type="text/javascript">
-const inputField = document.querySelector('#input-field')
+  const inputField = document.querySelector('#input-field')
 
-inputField.addEventListener('input', ({ target: { value } }) => {
-  inputField.setAttribute('class', generateClassList(
-    'input-field',
-    { 'is-valid': value.length > 0 }
-  ))
-})
+  inputField.addEventListener('input', ({ target: { value } }) => {
+    inputField.setAttribute('class', generateClassList('input-field', { 'is-valid': value.length > 0 }))
+  })
 </script>
 ```
+
 ### React
+
 ```jsx
 import React, { useState } from 'react'
 import generateClassList from 'generate-class-list'
 
 const InputField = () => {
   const [value, setValue] = useState('')
-  
+
   return (
     <input
-      type='text'
+      type="text"
       value={value}
       onChange={({ target }) => setValue(target.value)}
-      className={generateClassList(
-        'input-field',
-        { 'is-valid': value.length > 0 }
-      )}
+      className={generateClassList('input-field', { 'is-valid': value.length > 0 })}
     />
   )
 }
