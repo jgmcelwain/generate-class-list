@@ -16,6 +16,10 @@ const generateClassList = (...potentialClasses) => {
       return classList.push(potentialClass)
     }
 
+    if (typeof potentialClass === 'function') {
+      return classList.push(potentialClass.call(this))
+    }
+
     if (Array.isArray(potentialClass)) {
       return potentialClass.forEach(inner => {
         return classList.push(generateClassList(inner))
