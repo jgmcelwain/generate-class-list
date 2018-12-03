@@ -4,30 +4,30 @@
   https://github.com/jgmcelwain/generate-class-list/blob/master/LICENSE.md
 */
 
-const generateClassList = (...potentialClasses) => {
+const generateClassList = (...classNames) => {
   const classList = []
 
-  potentialClasses.forEach(potentialClass => {
-    if (!potentialClass || typeof potentialClass === 'boolean') {
+  classNames.forEach(className => {
+    if (!className || typeof className === 'boolean') {
       return
     }
 
-    if (typeof potentialClass === 'string' || typeof potentialClass === 'number') {
-      return classList.push(potentialClass)
+    if (typeof className === 'string' || typeof className === 'number') {
+      return classList.push(className)
     }
 
-    if (typeof potentialClass === 'function') {
-      return classList.push(potentialClass.call(this))
+    if (typeof className === 'function') {
+      return classList.push(className.call(this))
     }
 
-    if (Array.isArray(potentialClass)) {
-      return potentialClass.forEach(inner => {
+    if (Array.isArray(className)) {
+      return className.forEach(inner => {
         return classList.push(generateClassList(inner))
       })
     }
 
-    if (potentialClass === Object(potentialClass)) {
-      return Object.entries(potentialClass).forEach(([className, isActive]) => {
+    if (className === Object(className)) {
+      return Object.entries(className).forEach(([className, isActive]) => {
         if (isActive) {
           return classList.push(className)
         }
