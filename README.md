@@ -25,7 +25,7 @@ generateClassList(() => 'from-a-function')) // 'from-a-function'
 generateClassList('first', { 'second': someCheck === true }) // 'first second'
 
 // nested arrays
-generateClassList([[[[[[[[[[['why-would-you-do-this']]]]]]]]]]]) // ''why-would-you-do-this''
+generateClassList([[[[[[[[[[['why-would-you-do-this']]]]]]]]]]]) // 'why-would-you-do-this'
 ```
 
 ## Examples
